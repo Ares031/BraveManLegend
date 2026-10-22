@@ -1,0 +1,65 @@
+// Refine the existing silhouettes at twice the source resolution.
+function refineMonster(base,id){
+ const out=document.createElement('canvas');out.width=96;out.height=128;
+ const p=out.getContext('2d');p.imageSmoothingEnabled=false;p.drawImage(base,0,0,96,128);
+ const r=(x,y,w,h,c)=>fill(p,x*2,y*2,w*2,h*2,c);
+ const line=(points,c)=>polygon(p,points.map(([x,y])=>[x*2,y*2]),c);
+ if(id==='goblin'){
+  // Hooked ears, warm inner ear, brow ridge and asymmetrical facial planes.
+  line([[2,10],[10,14],[10,20],[7,18]],'#bb9c6b');line([[44,10],[36,14],[37,20],[40,17]],'#d0b279');
+  r(13,10,2,9,'#617e43');r(15,9,12,1,'#ccdb86');r(16,10,5,1,'#b8d273');r(30,11,2,8,'#78974a');
+  line([[13,15],[21,16],[22,18],[15,17]],'#3a5636');line([[26,16],[33,14],[32,17],[26,18]],'#3a5636');
+  r(15,17,6,3,'#e9dc99');r(27,17,5,3,'#e9dc99');r(18,17,2,3,'#ae472d');r(27,17,2,3,'#ae472d');r(18.5,17.5,1,2,'#252f2c');r(27.5,17.5,1,2,'#252f2c');r(18,17,.5,.5,'#fff5c7');r(27,17,.5,.5,'#fff5c7');
+  line([[23,17],[21,22],[25,23],[27,21]],'#b3bf6a');r(22,21,4,1,'#d2d58b');r(22,22,1,.5,'#4c693b');r(25,22,1,.5,'#4c693b');r(14,21,4,1,'#a2b95f');r(30,21,3,1,'#a2b95f');
+  r(18,24,13,1.5,'#26372a');r(20,24,2,3,'#fff0be');r(28,24,2,3,'#fff0be');r(20,27,1,.5,'#b5b17c');r(15,27,5,1,'#47663a');
+  // Leather panels, stitched seams, tarnished shoulder plate and bone necklace.
+  line([[14,29],[19,28],[23,43],[18,44]],'#493c2d');r(15,30,2,10,'#bc9453');r(28,30,2,12,'#4f412d');
+  for(let i=0;i<5;i++){r(18+i*.5,31+i*2,1,.5,'#e0bf7d');r(28,32+i*2,.5,1,'#bb945b')}
+  line([[7,29],[13,27],[17,30],[15,34],[7,34]],'#596962');r(9,29,5,1,'#b0b6a0');r(8,31,1,1,'#e2d4a1');r(14,31,1,1,'#c1b994');r(9,33,5,.5,'#313f3c');
+  line([[18,29],[23,32],[29,29],[26,34],[22,34]],'#d0b774');r(23,32,1,3,'#f4e3b0');r(26,31,1,2,'#eee0af');
+  r(13,45,9,1,'#8c7150');r(24,44,2,2,'#f2d583');r(25,44,.5,1,'#fff1bb');r(30,45,4,6,'#5c4532');r(31,46,2,1,'#a1814e');
+  for(const x of [7,36]){r(x,39,4,2,'#4d633b');r(x+.5,42,1,3,'#ccd18b');r(x+2,43,1,2,'#73864a')}
+  r(13,51,4,1,'#b1bb77');r(29,52,3,1,'#c7cb89');r(10,58,9,.5,'#9b8150');r(29,58,8,.5,'#9b8150');
+  r(39.5,26,1,13,'#c09b60');for(let y=29;y<40;y+=3)r(39,y,3,1,'#3f3930');line([[39,24],[40,16],[42,24]],'#f3f0ce');r(40,20,.5,3,'#ffffff');
+ }else if(id==='cyclops'){
+  // Brow, single recessed eye, scars and coarse cropped hair.
+  line([[13,6],[15,2],[19,4],[22,1],[25,3],[29,2],[34,6],[33,9],[15,9]],'#514237');r(17,5,3,.5,'#958068');r(25,4,4,.5,'#806c54');
+  r(14,10,2,10,'#9e805e');r(16,9,15,1,'#e7cca0');line([[16,10],[23,9],[32,10],[34,13],[29,12],[18,12]],'#8b7053');
+  r(17,12,16,6,'#574c40');r(18,12.5,14,4,'#fff1cf');r(22,12,6,5,'#b17e3c');r(23,12,4,4,'#d3aa4f');r(24,12.5,2,4,'#243332');r(23.5,12.5,1,1,'#fffce6');r(18,17,13,1,'#d2aa7a');
+  line([[23,18],[21,21],[27,22],[28,20]],'#dfbd90');r(20,23,12,1.5,'#533e32');r(21,23,2,2,'#eee2be');r(28,22,2,3,'#fff1d0');
+  for(let i=0;i<4;i++){r(30+i*.5,18+i*.8,1,.5,'#865e4b');r(30+i*.5,18.5+i*.8,.5,.5,'#deb28b')}
+  // Faceted muscles, knuckles, leather straps and a fur-trimmed hide skirt.
+  line([[13,25],[21,24],[23,28],[21,32],[14,31]],'#dfbd8b');line([[25,25],[33,25],[35,30],[26,31]],'#c3a076');r(23,27,1,8,'#8d7052');r(15,32,7,1,'#80654b');r(27,32,6,1,'#80654b');
+  r(16,34,6,2,'#d1ae7d');r(26,34,6,2,'#c7a375');r(18,38,4,1,'#e0bd8a');r(26,38,4,1,'#d5b381');
+  line([[11,23],[15,23],[31,42],[27,43]],'#65503c');line([[12,24],[13,24],[29,42],[28,42]],'#ad8c58');
+  for(let i=0;i<5;i++)r(14+i*3,27+i*3,1,1,'#d7bc84');
+  for(let x=9;x<39;x+=3){line([[x,44],[x+3,44],[x+2,48+(x%3)],[x,47]],x%2?'#a18b65':'#c5ae80')}
+  r(24,41,3,3,'#e6ca88');r(25,42,1,1,'#665540');r(12,50,5,3,'#d5b78a');r(30,50,5,3,'#cfad7e');
+  for(const x of [3,37]){r(x,29,6,2,'#ead0a2');r(x+1,34,5,1,'#8b7055');r(x+1,40,6,5,'#8c6c51');for(let i=0;i<3;i++)r(x+1+i*2,41,1,2,'#d5b98c')}
+  r(9,58,10,1,'#8f7656');r(29,58,10,1,'#8f7656');
+  line([[38,14],[41,12],[46,15],[46,23],[43,26],[38,23]],'#65533c');r(39,15,2,6,'#ad9060');r(42,15,1,8,'#8e744f');r(44,17,1,5,'#3c3830');for(const [x,y] of [[38,17],[45,16],[41,24]]){r(x,y,2,2,'#a9ada0');r(x,y,1,.5,'#ece7c5')}r(41,28,1,11,'#ba9259');for(let y=30;y<41;y+=3)r(40,y,4,1,'#433a2e');
+ }else{
+  // Folded hood, loose scarf, an exposed eye and a fine facial scar.
+  line([[12,6],[19,2],[29,2],[36,9],[33,13],[30,8],[20,6],[14,12]],'#663e4a');r(19,3,8,1,'#bf7f70');r(16,5,4,1,'#a26161');line([[29,4],[34,8],[33,11],[30,8]],'#3d2d3b');
+  r(15,11,2,8,'#a86e53');r(18,11,8,2,'#f2c28e');r(16,14,6,1,'#694939');r(27,14,6,1,'#694939');r(17,15,4,2,'#1f2a30');r(28,15,4,2,'#1f2a30');r(18,15,1,1,'#f8e7c0');r(29,15,1,1,'#f8e7c0');r(25,16,2,3,'#e8b180');r(26,19,2,.5,'#956047');
+  r(30,17,.5,3,'#824943');r(30.5,17,.5,3,'#e8aa8b');r(14,21,18,1,'#9e6671');r(16,23,13,1,'#654554');line([[32,22],[38,25],[42,34],[36,31],[32,26]],'#774b5a');r(37,28,1,3,'#b5807d');
+  // Riveted steel pauldron, quilted tunic, cross belt and utility pouches.
+  line([[9,27],[13,25],[18,27],[18,31],[14,34],[8,32]],'#414c5a');r(10,27,6,1,'#d8d7bf');r(10,28,6,2,'#8e9da0');r(10,31,6,1,'#657582');r(9,29,1,1,'#f0ddb0');r(16,29,1,1,'#f0ddb0');
+  r(17,29,4,10,'#b17b57');r(25,29,5,11,'#96614b');for(let y=31;y<42;y+=3){r(17,y,3,.5,'#d29b6b');r(27,y,3,.5,'#b98561')}
+  line([[28,26],[31,28],[17,43],[14,42]],'#ab8457');line([[28,26],[29,27],[15,42],[14,42]],'#eed09a');r(22,33,4,3,'#d5b77e');r(23,34,2,1,'#66503d');
+  r(12,45,9,.5,'#a18b6b');r(23,44,3,2,'#efd58f');r(24,44,1,1,'#fff0c4');r(30,46,5,6,'#4b3c35');r(30,46,5,1,'#bf9160');r(32,48,1,1,'#e3c586');r(12,47,5,5,'#6c4e3d');r(13,47,3,1,'#ba8f5e');
+  for(const x of [6,35]){r(x,37,6,2,'#3c3440');r(x,38,6,1,'#ba966d');r(x+1,44,4,1,'#e8ba88');r(x+2,46,.5,2,'#9e7156')}
+  r(15,49,3,3,'#75818d');r(29,50,3,3,'#75818d');r(12,58,8,.5,'#c0996a');r(29,58,8,.5,'#c0996a');r(13,60,8,1,'#201e29');r(29,60,8,1,'#201e29');
+  line([[40,29],[41,19],[44,16],[43,29]],'#8cabae');line([[40,29],[41,20],[42,19],[42,29]],'#f5f4d7');r(42,23,.5,4,'#ffffff');r(37,32,7,1,'#ecd49a');r(39,35,3,1,'#a77b4e');r(39,38,3,1,'#a77b4e');
+ }
+ // One fine dark contour separates each silhouette from both day and night scenery.
+ const edged=document.createElement('canvas');edged.width=96;edged.height=128;const q=edged.getContext('2d');
+ for(const [x,y] of [[-1,0],[1,0],[0,-1],[0,1]])q.drawImage(out,x,y);
+ q.globalCompositeOperation='source-in';q.fillStyle='#202a2b';q.fillRect(0,0,96,128);q.globalCompositeOperation='source-over';q.drawImage(out,0,0);
+ return edged;
+}
+window.addEventListener('load',()=>{
+ const study=document.createElement('section');study.className='monster-study';study.innerHTML='<div class="study-title">怪物圖鑑 <small>精細像素 · 外觀預覽</small></div><div class="monster-cards"></div>';
+ document.querySelector('.encounters').after(study);
+ for(const type of monsterTypes){const card=document.createElement('div');card.className='monster-card';const image=document.createElement('canvas');image.width=144;image.height=192;image.setAttribute('aria-label',type.name+'精細外觀');const p=image.getContext('2d');p.imageSmoothingEnabled=false;p.drawImage(monsterSprites[type.id],0,0,144,192);card.append(image);const label=document.createElement('div');label.textContent=type.name;const desc=document.createElement('small');desc.textContent={goblin:'尖耳獠牙 / 骨飾皮甲 / 短矛',cyclops:'獨眼傷疤 / 獸皮護腰 / 鉚釘木棒',bandit:'兜帽面巾 / 金屬肩甲 / 彎刃短刀'}[type.id];card.append(label,desc);study.querySelector('.monster-cards').append(card)}
+});
