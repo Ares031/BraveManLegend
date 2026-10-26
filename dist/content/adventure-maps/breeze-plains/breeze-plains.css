@@ -1,0 +1,15 @@
+.scene{background:#789b81}
+#journey{cursor:crosshair;touch-action:manipulation}
+/* The canvas occupies its own row; menu and travel controls extend below it. */
+
+
+
+
+.travel-controls{display:flex;gap:10px;flex-wrap:wrap;margin:0}
+.panel{min-height:0}
+.journey-distance{position:absolute;top:16px;left:18px;font-size:12px;letter-spacing:1px;color:#eee6c3;text-shadow:0 2px 6px #000;pointer-events:none}
+.return-village{display:inline-flex;align-items:center;border:1px solid #465d46;background:#20372d;border-radius:5px;padding:10px 14px;font-size:12px;text-decoration:none}
+.encounters{font-size:11px;line-height:1.9;color:#b9c6a5;overflow-wrap:anywhere}
+.encounters p{margin:12px 0 0}
+
+@media(max-width:700px){.journey-distance{font-size:10px;left:12px;top:12px}.travel-controls{gap:6px}.travel-controls button,.return-village{font-size:11px;padding:10px}}

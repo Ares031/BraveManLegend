@@ -58,8 +58,3 @@ function refineMonster(base,id){
  q.globalCompositeOperation='source-in';q.fillStyle='#202a2b';q.fillRect(0,0,96,128);q.globalCompositeOperation='source-over';q.drawImage(out,0,0);
  return edged;
 }
-window.addEventListener('load',()=>{
- const study=document.createElement('section');study.className='monster-study';study.innerHTML='<div class="study-title">怪物圖鑑 <small>精細像素 · 外觀預覽</small></div><div class="monster-cards"></div>';
- document.querySelector('.encounters').after(study);
- for(const type of monsterTypes){const card=document.createElement('div');card.className='monster-card';const image=document.createElement('canvas');image.width=144;image.height=192;image.setAttribute('aria-label',type.name+'精細外觀');const p=image.getContext('2d');p.imageSmoothingEnabled=false;p.drawImage(monsterSprites[type.id],0,0,144,192);card.append(image);const label=document.createElement('div');label.textContent=type.name;const desc=document.createElement('small');desc.textContent={goblin:'尖耳獠牙 / 骨飾皮甲 / 短矛',cyclops:'獨眼傷疤 / 獸皮護腰 / 鉚釘木棒',bandit:'兜帽面巾 / 金屬肩甲 / 彎刃短刀'}[type.id];card.append(label,desc);study.querySelector('.monster-cards').append(card)}
-});

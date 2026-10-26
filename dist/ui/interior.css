@@ -1,0 +1,3 @@
+.scene canvas{image-rendering:auto;cursor:default;background:#2a2119}
+.interior-controls{display:flex;margin:0}
+.return-town{display:inline-flex;align-items:center;text-decoration:none;padding:11px 16px;background:#20372d;border:1px solid #465d46;border-radius:5px;font-size:12px}

@@ -1,0 +1,9 @@
+.facility-npc{position:absolute;left:0;bottom:0;width:54%;height:98%;overflow:hidden;padding:0;border:0;border-radius:0;background:transparent;cursor:pointer;letter-spacing:0;filter:drop-shadow(5px 3px 9px #100a0844)}
+.facility-npc:hover{background:transparent;border:0}
+.facility-npc img{position:absolute;top:0;left:50%;transform:translateX(-50%);display:block;width:auto;max-width:none;height:175%;pointer-events:none}
+.facility-menu{position:absolute;right:5%;top:16%;width:36%;display:grid;gap:10px;padding:20px;background:linear-gradient(145deg,#18251feF,#2e261ee8);border:1px solid #b4a17199;border-radius:8px;box-shadow:0 12px 30px #090c0b66}
+.facility-menu h2{font:clamp(14px,1.5vw,23px) serif;letter-spacing:2px;margin:0;color:#ead4a0}
+.facility-menu p{font-size:clamp(10px,1vw,13px);line-height:1.7;margin:0 0 6px;color:#c2c6ab}
+.facility-menu button{padding:11px 6px;font-size:clamp(11px,1vw,14px);letter-spacing:2px;background:#3d4430;border-color:#9a8e6266;text-align:left}
+.facility-menu button:hover{background:#576044}
+@media(max-width:700px){.facility-menu{right:4%;top:10%;width:39%;padding:10px;gap:6px}.facility-menu h2{font-size:13px;letter-spacing:1px}.facility-menu p{font-size:10px;line-height:1.4;margin-bottom:3px}.facility-menu button{padding:7px 5px;font-size:11px;letter-spacing:1px}}
